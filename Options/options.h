@@ -8,9 +8,9 @@ constexpr const double MATH_PI = 3.14159265358979323846;
 
 enum class CalculationType
 {
-	Futures,		// How much an investment or asset will be worth at a specific point in the future		
+	Futures,	// How much an investment or asset will be worth at a specific point in the future		
 	BlackScholes,	// Theoretical estimate for the price of European-style options.
-	MonteCarlo,		// Calculates the price of a European call option uisng Monte Carlo simulation
+	MonteCarlo,	// Calculates the price of a European call option uisng Monte Carlo simulation
 	Greeks,			
 };
 
