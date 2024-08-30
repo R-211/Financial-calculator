@@ -60,16 +60,16 @@ struct BlackScholesParams
 	Price strike_price{};           //  K          : Represents the current strike price (fixed price at which the owner of a call option can buy, or the owner of a put option can sell, the underlying asset).
 	Time time{};                    //  T          : Represents the time remaning until the option's expiration (Years).
 	Volatility volatility{};        //  σ          : Represents the volatility (variation in the price of the underlying asset over time).
-	OptionType option_type{};              //  Call / Put : Represents the type (can either be a Call or a Put).
+	OptionType option_type{};       //  Call / Put : Represents the type (can either be a Call or a Put).
 	Price paid_price{};             //  $          : Represents the paid price
 };
 
 // Struct to hold the parameters needed for the futures calculations
 struct FuturesParams
 {
-	Price present_value{};			// Initial investment amount or current value of the asset
+	Price present_value{};		// Initial investment amount or current value of the asset
 	InterestRate interest_rate{};   // Annual interest rate or rate of return on the investment
-	Time time{};					// Time horizon over which the investment will grow (Years)		
+	Time time{};			// Time horizon over which the investment will grow (Years)		
 };
 
 // Struct to hold the parameters needed for the greeks calculations
