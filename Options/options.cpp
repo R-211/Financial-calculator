@@ -29,7 +29,7 @@
 	const auto d1 = (log(params.underlying_price / params.strike_price) + (params.interest_rate + (params.volatility * params.volatility) / 2.0) * params.time) / (params.volatility * std::sqrt(params.time));
 	const auto d2 = d1 - params.volatility * std::sqrt(params.time);
 
-	const auto discount = std::exp(-params.interest_rate * params.time);			// Measures the present value of $1 to be received at a future date
+	const auto discount = std::exp(-params.interest_rate * params.time);		// Measures the present value of $1 to be received at a future date
 	const auto dividend_discount = std::exp(-params.dividend_yield * params.time);  // It's similar to discount, but it's based on the dividend yield instead of the interest rate
 
 	switch (greek)
@@ -71,16 +71,14 @@
 /*
 	@calculateMonteCarlo: Gets the Monte Carlo pricing
 
-	Calculate the relation between one day and the time passed. For example 1 day represents 0.00274 of a year.
-
-	The underlying asset price is modeled using GBM - dS = μS dt + σS dW
+	-.Calculate the relation between one day and the time passed. For example 1 day represents 0.00274 of a year.
+	-.The underlying asset price is modeled using GBM - dS = μS dt + σS dW
 		-. Where:
 			-.S is the stock price
 			-.μ is the drift (expected return)
 			-.σ is the volatility
 			-.dW is a Wiener process
-
-	Each day:
+	-.Each day:
 		-. Box-Muller Transform will be calculated
 			-. Two random uniform variables u1 and u2 will be generated
 			-. Transforms them using the following formula Z = sqrt(-2 * ln(u1)) * cos(2π * u2)
@@ -92,11 +90,9 @@
 			-. Drift: The drif basically represents the expected change in the asset's price over time
 			-. Diffusion: Attempts to model the fluctuations in the asset's price that are random
 			-. Exp is used in order to not get negative values for the underlying price
-
-	After each day:
+	-.After each day:
 		-. Calculate the payoff and add it to the total payoff
-
-	After all the iterations:
+	-.After all the iterations:
 		-. Calculate the average payoff
 		-. Calculate the discount to get the present value of the option. Essentially we're adjusting a future payoff to its present-day equivalent,
 		considering what that money could earn if invested at the risk-free rate instead.
