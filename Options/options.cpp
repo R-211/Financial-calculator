@@ -125,7 +125,7 @@
 			underlying_price *= std::exp(drift + diffusion);
 		}
 
-		double payoff{ 0.0 };
+		Price payoff{ 0.0 };
 		if (params.option_type == OptionType::Call)
 		{
 			payoff = std::max(underlying_price - params.strike_price, 0.0);
