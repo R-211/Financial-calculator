@@ -74,7 +74,7 @@
 	-.Calculate the relation between one day and the time passed. For example 1 day represents 0.00274 of a year.
 	-.The underlying asset price is modeled using GBM - dS = μS dt + σS dW
 		-. Where:
-			-.S is the stock price
+			-.S is the asset price
 			-.μ is the drift (expected return)
 			-.σ is the volatility
 			-.dW is a Wiener process
